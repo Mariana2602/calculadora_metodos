@@ -3,9 +3,9 @@ import copy
 
 import customtkinter as ctk
 
-from src.commands.minimun_cost import minimun_cost
-from src.commands.northwest_corner import nortwest_corner
-from src.commands.vogel_approximation import vogel_approximation
+from aplicacion.metodos.costo_minimo import CostoMinimo
+from aplicacion.metodos.esquina_noroeste import EsquinaNoroeste
+from aplicacion.metodos.aproximacion_vogel import AproximacionVogel
 
 ctk.set_appearance_mode("Light")
 
@@ -496,22 +496,22 @@ class App(ctk.CTk):
         try:
             match method:
                 case "Costo Mínimo":
-                    t = minimun_cost(copy.deepcopy(matriz), offers[:], demands[:])
-                    t.resolve_minimun_cost()
-                    conclusion = t.groq_promt() if self.check_var.get() else ""
+                    t = CostoMinimo(copy.deepcopy(matriz), offers[:], demands[:])
+                    t.resolve_costo_minimo()
+                    conclusion = t.groq_prompt() if self.check_var.get() else ""
                     t.save_result_to_txt("Costo_Minimo", conclusion)
 
                 case "Esquina Noroeste":
-                    t = nortwest_corner(copy.deepcopy(matriz), offers[:], demands[:])
-                    t.resolve_nortwest()
-                    conclusion = t.groq_promt() if self.check_var.get() else ""
+                    t = EsquinaNoroeste(copy.deepcopy(matriz), offers[:], demands[:])
+                    t.resolve_esquina_noroeste()
+                    conclusion = t.groq_prompt() if self.check_var.get() else ""
                     t.save_result_to_txt("Esquina_Noroeste", conclusion)
 
                 case "Aproximación de Vogel":
-                    t = vogel_approximation(copy.deepcopy(matriz), offers[:], demands[:])
-                    t.resolve_vogel()
-                    conclusion = t.groq_promt() if self.check_var.get() else ""
-                    t.save_result_to_txt("Aproximación de vogel", conclusion)
+                    t = AproximacionVogel(copy.deepcopy(matriz), offers[:], demands[:])
+                    t.resolve_aproximacion_vogel()
+                    conclusion = t.groq_prompt() if self.check_var.get() else ""
+                    t.save_result_to_txt("Aproximacion_de_Vogel", conclusion)
 
         except ValueError as ve:
             print(f"[Error de validación]: {ve}")

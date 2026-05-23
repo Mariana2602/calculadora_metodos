@@ -2,9 +2,10 @@ import os
 from datetime import datetime
 from os import getenv
 from groq import Groq
-from .verify import verify
+from .validacion import validar
 
-class transport:
+
+class Transporte:
 
     def __init__(self, matriz, offers, demands):
         groqKey = getenv("GROQ_API_KEY", "")
@@ -16,7 +17,7 @@ class transport:
         self.clone_matriz = [fila[:] for fila in matriz]
         self.clone_offers = offers[:]
         self.clone_demands = demands[:]
-        verify(self.offers, self.demands, self.matriz)
+        validar(self.offers, self.demands, self.matriz)
 
         self.values = []
         self.result = 0
@@ -101,5 +102,5 @@ class transport:
         print(f"\nResultado guardado en: {filename}")
         return filename
 
-    def groq_promt(self):
+    def groq_prompt(self):
         pass

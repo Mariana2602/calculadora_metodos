@@ -1,4 +1,5 @@
 # Pasos para correr el proyecto
+
 ```bash
 git clone https://github.com/Mariana2602/calculadora_metodos
 ```
@@ -13,5 +14,6 @@ source .venv/bin/activate #linux/mac
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
-### 4. Generar una apikey 
+### Generar una apikey 
 Crea una apikey en [GroqCloud](https://console.groq.com/) y crea un archivo .env en la raiz del proyecto.
+

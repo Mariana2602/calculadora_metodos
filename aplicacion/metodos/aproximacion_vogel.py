@@ -1,12 +1,13 @@
-from .transport import transport
-from .groq_conclusion import groq_conclusion
+from .transporte import Transporte
+from .conclusion_groq import groq_conclusion
 
-class vogel_approximation(transport):
+
+class AproximacionVogel(Transporte):
 
     def __init__(self, matriz, offers, demands):
         super().__init__(matriz, offers, demands)
 
-    def resolve_vogel(self):
+    def resolve_aproximacion_vogel(self):
         cont = 0
 
         while True:
@@ -95,7 +96,7 @@ class vogel_approximation(transport):
         self.log_iteraciones.append(text)
 
 
-    def groq_promt(self):
+    def groq_prompt(self):
         suma_ofertas = sum(self.clone_offers)
         suma_demandas = sum(self.clone_demands)
         balanceado = suma_ofertas == suma_demandas

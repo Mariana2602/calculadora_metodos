@@ -19,7 +19,7 @@ except ModuleNotFoundError:
     def load_dotenv():
         return None
 
-from src.view.gui import App
+from aplicacion.vista.ventana_principal import App
 
 load_dotenv()
 

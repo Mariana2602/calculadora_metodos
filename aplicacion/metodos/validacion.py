@@ -1,4 +1,4 @@
-def verify(offers: list[float], demands: list[float], matriz: list[list[float]]):
+def validar(offers: list[float], demands: list[float], matriz: list[list[float]]):
 
     
     if (len(matriz[0]) != len(demands) or len(matriz) != len(offers)):
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     matriz = [[5,2,7,3],[3,6,6,1],[6,1,2,4], [4,3,6,6]]
     offers = [80,30,60,5]
     demands = [70,40,70,35]
-    verify(offers,demands,matriz) 
+    validar(offers,demands,matriz) 
     print(matriz) #Salida esperada [[5, 2, 7, 3], [3, 6, 6, 1], [6, 1, 2, 4], [4, 3, 6, 6], [0, 0, 0, 0]]
     print(offers) #Salida esperada [80, 30, 60, 5, 40]
     print(demands) #Salida esperada [70,40,70,35]

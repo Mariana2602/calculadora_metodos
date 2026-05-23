@@ -1,12 +1,13 @@
-from .transport import transport
-from .groq_conclusion import groq_conclusion
+from .transporte import Transporte
+from .conclusion_groq import groq_conclusion
 
-class minimun_cost(transport):
+
+class CostoMinimo(Transporte):
 
     def __init__(self, matriz, offers, demands):
         super().__init__(matriz, offers, demands)
 
-    def resolve_minimun_cost(self):
+    def resolve_costo_minimo(self):
         cont = 0
 
         while True:
@@ -49,7 +50,7 @@ class minimun_cost(transport):
                 self.matriz.pop(y)
             cont += 1
 
-    def groq_promt(self):
+    def groq_prompt(self):
         suma_ofertas = sum(self.clone_offers)
         suma_demandas = sum(self.clone_demands)
         balanceado = suma_ofertas == suma_demandas
